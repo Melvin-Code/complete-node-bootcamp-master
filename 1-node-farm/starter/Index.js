@@ -37,7 +37,7 @@ const dataObj = JSON.parse(data);
 const server = http.createServer((req, res) => {
   console.log(req.url);
 
-  const pathName = req.url;
+  const pathName = req.url
 
   if (pathName === "/overview" || pathName === "/") {
     res.end("This is the overview");
