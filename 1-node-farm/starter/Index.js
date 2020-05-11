@@ -77,12 +77,16 @@ const {query, pathname } = url.parse(req.url, true);
     res.writeHead(200, {
       'Content-type': "text/html"
     })
-    res.end(tempProduct);
+    const product = dataObj[query.id]
+    const output = replaceTemplate(tempProduct, product)
+   res.end(output);
 
 //api page
   } else if (pathname === "/api") {
-    console.log(query)
-    res.end('this is the product');
+    res.writeHead(404, {
+      "content-type": "application/json"
+    });
+    res.end(data);
 
 // not found
   } else {
